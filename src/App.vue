@@ -1,28 +1,31 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="app">
+    <!--    <img alt="Vue logo" src="./assets/logo.png">-->
+    <div class="app__wrapper">
+      <Field v-for="item in fieldNames" :key="item" :name="item" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Field from "./components/Field";
+import { fieldNames } from "./config";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
+    Field
+  },
+  data() {
+    return {
+      fieldNames: fieldNames
+    };
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss">
+@import "scss/main";
 </style>
+
+<!--To do: Add Vue Router, Add Vuex store -->
